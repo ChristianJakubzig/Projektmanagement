@@ -1,5 +1,7 @@
 # Projektplan
 
+Hier könnte ihre Werbung stehen.
+
 ```mermaid
 gantt
     title Projektzeitplan

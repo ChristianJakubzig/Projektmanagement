@@ -5,6 +5,7 @@
 | Profilbild | GitHub-Profil | Rolle | Verantwortlichkeit |
 |------|-------|---------------|------------|
 | ![Christian Jakubzig](https://github.com/ChristianJakubzig.png?size=50) | [@Christian Jakubzig](https://github.com/ChristianJakubzig) | Entwickler | Erstellen der Github Struktur
+| ![Dominic Wilhelms](https://github.com/DominicWilhelms.png?size=50) | [@Dominic Wilhelms](https://github.com/DominicWilhelms) | Entwickler | ka. ^^
 
 ## GANTT-Diagram
 

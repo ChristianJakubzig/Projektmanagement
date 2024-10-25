@@ -11,8 +11,6 @@
 
 
 
-piaspios
-
 ## GANTT-Diagram
 
 ```mermaid

@@ -6,9 +6,9 @@
 |------|-------|---------------|------------|
 | ![Christian Jakubzig](https://github.com/ChristianJakubzig.png?size=50) | [@Christian Jakubzig](https://github.com/ChristianJakubzig) | Entwickler | Erstellen der Github Struktur
 | ![Dominic Wilhelms](https://github.com/DominicWilhelms.png?size=50) | [@Dominic Wilhelms](https://github.com/DominicWilhelms) | Entwickler | ka. ^^
-| ![Pia]() | [@Pia](https://github.com/piaspios) | Projektleitung/Entwickler | ka. ^^
+| ![Pia]() | [@Pia](https://github.com/piaspios) | Projektleitung/Entwicklerin | ka. ^^
 | ![Simon Eiberger]() | [@Simon-Eiberger](https://github.com/Simon-Eiberger) | Entwickler | ka. ^^
-| ![Annabel Feuerstein]() | [@AnnabelFeuerstein](https://github.com/AnnabelFeuerstein) | Entwickler | ka. ^^
+| ![Annabel Feuerstein]() | [@AnnabelFeuerstein](https://github.com/AnnabelFeuerstein) | Entwicklerin | ka. ^^
 
 
 

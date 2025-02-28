@@ -28,7 +28,7 @@ Das Projekt verwendet eine `docker-compose.yml`-Datei, um die benötigten Dienst
 | Profilbild | GitHub-Profil | Rolle | Verantwortlichkeit |
 |------|-------|---------------|------------|
 | ![Christian Jakubzig](https://github.com/ChristianJakubzig.png?size=50) | [@Christian Jakubzig](https://github.com/ChristianJakubzig) | Entwickler | Erstellen der Github Struktur
-| ![Christian Jakubzig (zweit acc)](https://github.com/ChristianJakubzig.png?size=50) | [@Christian Jakubzig (zweit acc)](https://github.com/ChristianJakubzig) | Entwickler | Erstellen der Github Struktur
+| ![Coding-HamsterX]() | [@Coding-HamsterX (zweit acc Jakubzig)](https://github.com/coding-HamsterX) | Entwickler | Erstellen der Github Struktur
 | ![Dominic Wilhelms](https://github.com/DominicWilhelms.png?size=50) | [@Dominic Wilhelms](https://github.com/DominicWilhelms) | Entwickler | ka. ^^
 | ![Pia]() | [@Pia](https://github.com/piaspios) | Projektleitung/Entwicklerin | ka. ^^
 | ![Simon Eiberger]() | [@Simon-Eiberger](https://github.com/Simon-Eiberger) | Entwickler | ka. ^^

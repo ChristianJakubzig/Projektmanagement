@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: pgdatabase
+    restart: always
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser -d mydatabase"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    networks:
+      - umgebungschaffen_net
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+      - OLLAMA_HOST=0.0.0.0
+    networks:
+      - umgebungschaffen_net
+
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: chromadb_container
+    ports:
+      - "8000:8000"
+    volumes:
+      - chromadb_data:/chroma
+    networks:
+      - umgebungschaffen_net
+
+  python_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: python_app_container
+    depends_on:
+      postgres:
+        condition: service_healthy
+      ollama:
+        condition: service_started
+      chromadb:
+        condition: service_started
+    environment:
+      POSTGRES_HOST: pgdatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+      OLLAMA_URL: http://ollama:11434
+      CHROMADB_URL: http://chromadb_container:8000
+    volumes:
+      - ./app:/app
+      - ./app/logs:/app/logs
+      - ./app/data:/app/data
+    working_dir: /app
+    networks:
+      - umgebungschaffen_net
+
+volumes:
+  pgdata:
+  chromadb_data:
+
+networks:
+  umgebungschaffen_net:
+    driver: bridge

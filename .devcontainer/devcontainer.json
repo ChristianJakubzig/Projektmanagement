@@ -1,0 +1,21 @@
+{
+    "name": "Python & C++ Development Container",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "python_app",
+    "workspaceFolder": "/app",
+    "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "terminal.integrated.defaultProfile.linux": "bash"
+    },
+    "extensions": [
+        "ms-python.python",  // Python-Unterstützung
+        "ms-vscode.cpptools",  // C++-Unterstützung
+        "ms-vscode.cmake-tools"  // Falls du CMake benutzt
+    ],
+    "forwardPorts": [8000, 11434, 5432],  // Ports für ChromaDB, Ollama und Postgres
+    "runArgs": [],
+    "remoteUser": "root",  // Falls du Root-Zugriff brauchst
+    "networks": [
+        "umgebungschaffen_net"  // Netzwerk angeben
+    ]    
+}

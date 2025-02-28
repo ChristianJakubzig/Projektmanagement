@@ -1,0 +1,14 @@
+ollama
+pdfplumber
+langchain
+langchain-core
+langchain-ollama
+langchain-community
+langchain-text-splitters
+unstructured[all-docs]
+fastembed
+sentence-transformers
+elevenlabs
+chromadb
+onnxruntime>=1.17.0,<1.20.0
+psycopg2

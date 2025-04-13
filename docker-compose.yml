@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   postgres:
@@ -36,8 +35,6 @@ services:
   chromadb:
     image: chromadb/chroma:latest
     container_name: chromadb_container
-    ports:
-      - "8000:8000"
     volumes:
       - chromadb_data:/chroma
     networks:
@@ -62,6 +59,8 @@ services:
       POSTGRES_DB: mydatabase
       OLLAMA_URL: http://ollama:11434
       CHROMADB_URL: http://chromadb_container:8000
+    ports:
+      - "8000:8000"
     volumes:
       - ./app:/app
       - ./app/logs:/app/logs

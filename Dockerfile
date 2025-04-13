@@ -1,5 +1,5 @@
 # Benutze das offizielle Python-Image als Basis
-FROM python:3.8-slim
+FROM python:3.11-slim
 
 # Setze Umgebungsvariablen
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -28,6 +28,8 @@ RUN apt-get update && apt-get install -y \
     gzip \
     ca-certificates \
     postgresql-client \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
     && apt-get clean
 
 # Installiere Rust & Cargo
@@ -40,10 +42,14 @@ WORKDIR /app
 # Pip aktualisieren und Abhängigkeiten installieren
 COPY requirements.txt .
 RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+    pip install -r requirements.txt &&\
+    pip install langchain-chroma
 
 # Kopiere den gesamten Code in den Container
 COPY . /app
+
+# Exponiere den Port für FastAPI
+EXPOSE 8000
 
 # Standardbefehl (falls du Python starten möchtest)
 CMD ["tail", "-f", "/dev/null"]

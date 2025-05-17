@@ -8,3 +8,12 @@
 2025-05-05 11:48:34,556 - Retriever created.
 2025-05-05 11:48:34,556 - Chain created successfully.
 2025-05-05 11:48:34,557 - Initialisierung abgeschlossen.
+2025-05-17 14:46:49,231 - Use pytorch device: cpu
+2025-05-17 14:46:49,772 - Initialisiere LLM und Vectorstore...
+2025-05-17 14:46:49,816 - Prüfe Vectorstore an: ./vectorstore
+2025-05-17 14:46:49,851 - Lade bestehenden Vectorstore...
+2025-05-17 14:46:50,275 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-05-17 14:46:50,504 - Vectorstore erfolgreich geladen oder erstellt.
+2025-05-17 14:46:50,505 - Retriever created.
+2025-05-17 14:46:50,506 - Chain created successfully.
+2025-05-17 14:46:50,507 - Initialisierung abgeschlossen.

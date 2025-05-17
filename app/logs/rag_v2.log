@@ -1,0 +1,10 @@
+2025-05-05 11:48:22,657 - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-05-05 11:48:33,729 - Use pytorch device: cpu
+2025-05-05 11:48:34,033 - Initialisiere LLM und Vectorstore...
+2025-05-05 11:48:34,068 - Prüfe Vectorstore an: ./vectorstore
+2025-05-05 11:48:34,098 - Lade bestehenden Vectorstore...
+2025-05-05 11:48:34,401 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-05-05 11:48:34,556 - Vectorstore erfolgreich geladen oder erstellt.
+2025-05-05 11:48:34,556 - Retriever created.
+2025-05-05 11:48:34,556 - Chain created successfully.
+2025-05-05 11:48:34,557 - Initialisierung abgeschlossen.

@@ -1,2 +1,1 @@
-app/Tutorial/Rag/db/chroma_db/
-app/Tutorial/Rag/db/chroma_db_with_metadata/
+app/Tutorial/Rag/db/*

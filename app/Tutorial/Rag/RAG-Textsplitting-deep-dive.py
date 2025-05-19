@@ -79,6 +79,9 @@ def create_vector_store(docs, store_name):
         db = Chroma.from_documents(
             docs, embeddings, persist_directory=persistent_directory
         )
+        # Bei dieser Ausführung passiert Folgendes:
+        #   Jeder Textchunk wird durch das embeddings-Objekt (Ollama mit dem "nomic-embed-text"-Modell) in einen numerischen Vektor umgewandelt
+        #   Diese Vektoren werden zusammen mit dem Originaltext und den Metadaten in der Chroma-Datenbank gespeichert
         print(f"--- Finished creating vector store {store_name} ---")
     else:
         # Meldung ausgeben, wenn die Datenbank bereits existiert

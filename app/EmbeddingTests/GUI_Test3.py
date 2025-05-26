@@ -25,7 +25,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_ollama import ChatOllama
-from langchain.embeddings import HuggingFaceBgeEmbeddings
+from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 from langchain.retrievers.multi_query import MultiQueryRetriever
 from langchain_core.callbacks import BaseCallbackHandler
 
@@ -85,7 +85,7 @@ def initialize_rag_system():
     
     # Pfad zur Vektordatenbank
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    persistent_directory = os.path.join(current_dir, "db", "chroma_db_huggingface_custom")
+    persistent_directory = os.path.join(current_dir, "db", "chroma_db_huggingface_custom2")
     
     # Überprüfen ob die Datenbank existiert
     if not os.path.exists(persistent_directory):
@@ -95,7 +95,7 @@ def initialize_rag_system():
     try:
         # Embedding-Modell initialisieren
         embeddings = HuggingFaceBgeEmbeddings(
-            model_name="ibm-granite/granite-embedding-278m-multilingual"
+            model_name="oliverguhr/revosax-granite-embedding-278m-multilingual"
         )
         
         # Vektordatenbank laden
@@ -103,8 +103,8 @@ def initialize_rag_system():
         
         # Basis-Retriever erstellen
         base_retriever = db.as_retriever(
-            search_type="mmr",
-            search_kwargs={"k": 3, "fetch_k": 20, "lambda_mult": 0.5},
+            search_type="similarity_score_threshold",
+            search_kwargs={"k": 3, "score_threshold": 0.1},
         )
         
         # LLM initialisieren
@@ -204,7 +204,7 @@ def display_source_documents(context_docs):
 
 def main():
     # Titel und Beschreibung
-    st.title("🤖 RAG-Chatbot mit MultiQuery")
+    st.title("🤖 SADPAC")
     st.markdown("Stellen Sie Fragen basierend auf Ihren Dokumenten - mit verbesserter Suche!")
     
     # Sidebar für Konfiguration

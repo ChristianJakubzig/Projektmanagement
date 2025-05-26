@@ -89,6 +89,16 @@ huggingface_custom_embeddings = HuggingFaceEmbeddings(
 
 create_vector_store(docs, huggingface_custom_embeddings, "chroma_db_huggingface_custom")  # Vektordatenbank mit benutzerdefinierten Hugging Face Embeddings erstellen
 
+
+# 4. Erstellen der Vektordatenbank mit benutzerdefinierten Hugging Face Embeddings
+print("Creating vector store with custom Hugging Face embeddings...")
+huggingface_custom_embeddings2 = HuggingFaceEmbeddings(
+    model_name="oliverguhr/revosax-granite-embedding-278m-multilingual"  # Ein weiteres Modell für semantische Ähnlichkeit
+)
+
+create_vector_store(docs, huggingface_custom_embeddings2, "chroma_db_huggingface_custom2")  # Vektordatenbank mit benutzerdefinierten Hugging Face Embeddings erstellen
+
+
 def query_vector_store(store_name, query, embedding_function):
     """
     Führt eine Abfrage auf der angegebenen Vektordatenbank durch und gibt die Ergebnisse aus.
@@ -134,5 +144,6 @@ query = "Wie starb Julia"  # Beispielfrage: "Wie starb Julia"
 query_vector_store("chroma_db_ollama", query, ollama_embeddings)  # Ollama-basierte Datenbank abfragen
 query_vector_store("chroma_db_huggingface", query, huggingface_embeddings)  # Hugging Face-basierte Datenbank abfragen
 query_vector_store("chroma_db_huggingface_custom", query, huggingface_custom_embeddings)  # Custom Hugging Face-basierte Datenbank abfragen
+query_vector_store("chroma_db_huggingface_custom2", query, huggingface_custom_embeddings2)  # Zweite Custom Hugging Face-basierte Datenbank abfragen
 
 print("Querying demonstrations completed.")  # Abschlussnachricht

@@ -4,7 +4,7 @@ OLLAMA_URL = "http://ollama:11434"
 ollama = Client(host=OLLAMA_URL)
 
 EMBEDDING_MODEL = "nomic-embed-text"
-MODEL_NAME = "llama3.2"
+MODEL_NAME = "deepseek-r1:8b"
 
 try:
     # Versuche, das Modell zu ziehen

@@ -1,14 +1,14 @@
 """
-Streamlit GUI für RAG-Chatbot mit MultiQueryRetriever und Streaming
+Streamlit GUI für RAG-Chatbot mit Streaming
 
 Dieses Skript erstellt eine benutzerfreundliche Web-Oberfläche für den RAG-Chatbot
-mit Streaming-Antworten und erweiterten Features.
+mit Streaming-Antworten und Standard-Retriever.
 
 Features:
 - Moderne Streamlit-Benutzeroberfläche
 - Streaming von KI-Antworten in Echtzeit
 - Chat-Verlauf mit Benutzer- und KI-Nachrichten
-- MultiQueryRetriever für bessere Suchergebnisse
+- Standard-Retriever für Suchergebnisse
 - Seitenleiste mit Konfigurationsoptionen
 - Zurücksetzen des Chat-Verlaufs
 - Anzeige der Quelldokumente
@@ -26,7 +26,6 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_ollama import ChatOllama
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
-from langchain.retrievers.multi_query import MultiQueryRetriever
 from langchain_core.callbacks import BaseCallbackHandler
 
 # Streamlit Konfiguration
@@ -101,10 +100,10 @@ def initialize_rag_system():
         # Vektordatenbank laden
         db = Chroma(persist_directory=persistent_directory, embedding_function=embeddings)
         
-        # Basis-Retriever erstellen
-        base_retriever = db.as_retriever(
+        # Standard-Retriever erstellen (ohne MultiQuery)
+        retriever = db.as_retriever(
             search_type="similarity_score_threshold",
-            search_kwargs={"k": 5, "score_threshold": 0.3},
+            search_kwargs={"k": 3, "score_threshold": 0.1},
         )
         
         # LLM initialisieren
@@ -112,15 +111,7 @@ def initialize_rag_system():
             model=MODEL_NAME, 
             base_url=OLLAMA_URL,
             temperature=0.1,
-            top_p=0.1,
             streaming=True  # Aktiviert Streaming
-        )
-        
-        # MultiQueryRetriever erstellen
-        multi_query_retriever = MultiQueryRetriever.from_llm(
-            retriever=base_retriever,
-            llm=llm,
-            parser_key="lines"
         )
         
         # Prompts definieren
@@ -139,12 +130,11 @@ def initialize_rag_system():
         ])
         
         qa_system_prompt = (
-            "Sie sind ein hilfsreicher Assistent für Frage-Antwort-Aufgaben. "
-            "WICHTIG: Verwenden Sie AUSSCHLIESSLICH die folgenden abgerufenen Kontextinformationen, um die Frage zu beantworten. "
-            "Erfinden Sie KEINE zusätzlichen Details oder Informationen, die nicht explizit in den bereitgestellten Texten stehen. "
-            "Wenn die bereitgestellten Informationen nicht ausreichen, um die Frage vollständig zu beantworten, sagen Sie das ehrlich. "
-            "Beginnen Sie Ihre Antwort mit 'Basierend auf den verfügbaren Texten...' wenn Sie unsicher sind. "
-            "Antworten Sie präzise und auf Deutsch.\n\n{context}"
+            "Sie sind ein präziser Assistent für Frage-Antwort-Aufgaben. "
+            "Beantworten Sie die Frage ausschließlich mit den folgenden abgerufenen Textabschnitten (Kontext). "
+            "Fügen Sie keine zusätzlichen Details, Spekulationen oder Informationen hinzu, die nicht explizit in den Textabschnitten enthalten sind, wie z. B. Giftpilze, Nightshade, Mohnblumen oder falsche Behauptungen über Handlungsdetails. "
+            "Wenn die Antwort nicht vollständig in den Textabschnitten enthalten ist, geben Sie an, dass die Information fehlt, und formulieren Sie die Antwort so genau wie möglich basierend auf den verfügbaren Texten. "
+            "Antworten Sie direkt, präzise und auf Deutsch, ohne spekulative Überlegungen oder zusätzliche Interpretationen.\n\n{context}"
         )
         
         qa_prompt = ChatPromptTemplate.from_messages([
@@ -153,9 +143,9 @@ def initialize_rag_system():
             ("human", "{input}"),
         ])
         
-        # RAG-Chain erstellen
+        # RAG-Chain erstellen (mit Standard-Retriever)
         history_aware_retriever = create_history_aware_retriever(
-            llm, multi_query_retriever, contextualize_q_prompt
+            llm, retriever, contextualize_q_prompt
         )
         
         question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
@@ -208,7 +198,7 @@ def display_source_documents(context_docs):
 def main():
     # Titel und Beschreibung
     st.title("🤖 SADPAC")
-    st.markdown("Stellen Sie Fragen basierend auf Ihren Dokumenten - mit verbesserter Suche!")
+    st.markdown("Stellen Sie Fragen basierend auf Ihren Dokumenten!")
     
     # Sidebar für Konfiguration
     with st.sidebar:
@@ -226,7 +216,7 @@ def main():
         st.header("ℹ️ Informationen")
         st.markdown("""
         **Features:**
-        - 🔍 MultiQuery-Retriever
+        - 🔍 Standard-Retriever
         - 💬 Chat-Verlauf
         - 📚 Quelldokumente
         - ⚡ Streaming-Antworten

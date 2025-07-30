@@ -7,3 +7,7 @@ streamlit run /app/EmbeddingTests/GUI_Test3.py \
   --server.headless true \
   --server.enableCORS false \
   --server.enableXsrfProtection false
+
+
+Start-Befehl
+streamlit run /app/EmbeddingTests/TestWildau2.py 

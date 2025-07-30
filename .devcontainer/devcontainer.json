@@ -8,14 +8,28 @@
         "terminal.integrated.defaultProfile.linux": "bash"
     },
     "extensions": [
-        "ms-python.python",  // Python-Unterstützung
-        "ms-vscode.cpptools",  // C++-Unterstützung
-        "ms-vscode.cmake-tools"  // Falls du CMake benutzt
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools"
     ],
-    "forwardPorts": [8000, 11434, 5432],  // Ports für ChromaDB, Ollama und Postgres
+    "forwardPorts": [8000, 11434, 5432],
     "runArgs": [],
-    "remoteUser": "root",  // Falls du Root-Zugriff brauchst
+    "remoteUser": "root",
     "networks": [
-        "umgebungschaffen_net"  // Netzwerk angeben
-    ]    
+        "umgebungschaffen_net"
+    ],
+    "build": {
+        "args": {
+            "HTTP_PROXY": "http://proxy.th-wildau.de:8080",
+            "HTTPS_PROXY": "http://proxy.th-wildau.de:8080",
+            "http_proxy": "http://proxy.th-wildau.de:8080",
+            "https_proxy": "http://proxy.th-wildau.de:8080"
+        }
+    },
+    "containerEnv": {
+        "http_proxy": "http://proxy.th-wildau.de:8080",
+        "https_proxy": "http://proxy.th-wildau.de:8080",
+        "HTTP_PROXY": "http://proxy.th-wildau.de:8080",
+        "HTTPS_PROXY": "http://proxy.th-wildau.de:8080"
+    }
 }

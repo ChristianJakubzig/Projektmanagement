@@ -1,59 +1,64 @@
-# Benutze das offizielle Python-Image als Basis
-FROM python:3.11-slim
+# Multi-stage build für kleinere Images
+FROM python:3.11-slim as base
 
-# Setze Umgebungsvariablen
+# Umgebungsvariablen
 ENV DEBIAN_FRONTEND=noninteractive \
-    PATH="/root/.cargo/bin:$PATH"
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
 
-# Installiere grundlegende Pakete für Python, C++ und andere benötigte Tools
+# Arbeitsverzeichnis setzen
+WORKDIR /app
+
+# Build-Dependencies (werden später entfernt)
+FROM base as builder
 RUN apt-get update && apt-get install -y \
     build-essential \
     libpq-dev \
     g++ \
-    clang \
     cmake \
     git \
-    wget \
     curl \
-    poppler-utils \
-    tesseract-ocr \
-    libjpeg-dev \
-    zlib1g-dev \
-    libtiff5-dev \
-    libopenjp2-7-dev \
-    libpq-dev \
-    python3-dev \
-    bzip2 \
-    tar \
-    gzip \
-    ca-certificates \
-    postgresql-client \
-    libgl1-mesa-glx \
-    libglib2.0-0 \
-    && apt-get clean
+    && rm -rf /var/lib/apt/lists/*
 
-# Installiere Rust & Cargo
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
-    /bin/bash -c "source $HOME/.cargo/env"  
+# Rust installieren (nur für Build)
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+ENV PATH="/root/.cargo/bin:$PATH"
 
-# Setze das Arbeitsverzeichnis auf /app
-WORKDIR /app
-
-# Pip aktualisieren und Abhängigkeiten installieren
+# Python Dependencies installieren
 COPY requirements.txt .
 RUN pip install --upgrade pip && \
-    pip install -r requirements.txt &&\
+    pip install -r requirements.txt && \
     pip install langchain-chroma
 
-# Kopiere den gesamten Code in den Container
-COPY . /app
+# Final stage - nur Runtime
+FROM base as final
 
-# Exponiere den Port für FastAPI
+# Nur Runtime-Dependencies
+RUN apt-get update && apt-get install -y \
+    poppler-utils \
+    tesseract-ocr \
+    libjpeg62-turbo \
+    libpq5 \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Python packages von builder kopieren
+COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
+
+# App-Code kopieren
+COPY ./app /app
+
+# Logs und Data Ordner erstellen
+RUN mkdir -p /app/logs /app/uploads
+
+# Port exponieren
 EXPOSE 8000
 
-# Standardbefehl (falls du Python starten möchtest)
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:8000/health || exit 1
+
+# Standard-Command für Development
 CMD ["tail", "-f", "/dev/null"]
-
-
-
-

@@ -1,5 +1,13 @@
-# Multi-stage build für kleinere Images
-FROM python:3.11-slim as base
+# Multi-stage build für kleinere Images (dein ursprüngliches Design)
+FROM python:3.11-bullseye as base
+
+# Proxy-Konfiguration für TH Wildau
+ENV http_proxy=http://proxy.th-wildau.de:8080 \
+    https_proxy=http://proxy.th-wildau.de:8080 \
+    HTTP_PROXY=http://proxy.th-wildau.de:8080 \
+    HTTPS_PROXY=http://proxy.th-wildau.de:8080 \
+    no_proxy=localhost,127.0.0.1,.th-wildau.de \
+    NO_PROXY=localhost,127.0.0.1,.th-wildau.de
 
 # Umgebungsvariablen
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -12,6 +20,15 @@ WORKDIR /app
 
 # Build-Dependencies (werden später entfernt)
 FROM base as builder
+
+# pip Proxy-Konfiguration
+RUN pip config set global.proxy http://proxy.th-wildau.de:8080
+
+# apt Proxy-Konfiguration (falls noch nötig)
+RUN echo 'Acquire::http::Proxy "http://proxy.th-wildau.de:8080";' > /etc/apt/apt.conf.d/01proxy && \
+    echo 'Acquire::https::Proxy "http://proxy.th-wildau.de:8080";' >> /etc/apt/apt.conf.d/01proxy
+
+# Build-Dependencies installieren (bullseye hat schon die meisten)
 RUN apt-get update && apt-get install -y \
     build-essential \
     libpq-dev \
@@ -22,7 +39,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Rust installieren (nur für Build)
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/root/.cargo/bin:$PATH"
 
 # Python Dependencies installieren
@@ -34,12 +51,20 @@ RUN pip install --upgrade pip && \
 # Final stage - nur Runtime
 FROM base as final
 
-# Nur Runtime-Dependencies
+# pip Proxy-Konfiguration auch für final stage
+RUN pip config set global.proxy http://proxy.th-wildau.de:8080
+
+# apt Proxy-Konfiguration für final stage
+RUN echo 'Acquire::http::Proxy "http://proxy.th-wildau.de:8080";' > /etc/apt/apt.conf.d/01proxy && \
+    echo 'Acquire::https::Proxy "http://proxy.th-wildau.de:8080";' >> /etc/apt/apt.conf.d/01proxy
+
+# Runtime-Dependencies (bullseye package names)
 RUN apt-get update && apt-get install -y \
     poppler-utils \
     tesseract-ocr \
     libjpeg62-turbo \
     libpq5 \
+    curl \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 

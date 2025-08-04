@@ -1,17 +1,5 @@
 services:
-  ollama:
-    image: ollama/ollama:latest
-    container_name: ollama
-    ports:
-      - "11434:11434"
-    environment:
-      - OLLAMA_KEEP_ALIVE=24h
-      - OLLAMA_HOST=0.0.0.0
-    volumes:
-      - ollama_data:/root/.ollama
-    networks:
-      - app_network
-      
+     
   chromadb:
     image: chromadb/chroma:0.6.3
     container_name: chromadb
@@ -23,6 +11,10 @@ services:
       - IS_PERSISTENT=TRUE
       - PERSIST_DIRECTORY=/chroma/chroma
       - ANONYMIZED_TELEMETRY=FALSE
+      # Proxy-Konfiguration für ChromaDB
+      - http_proxy=http://proxy.th-wildau.de:8080
+      - https_proxy=http://proxy.th-wildau.de:8080
+      - no_proxy=localhost,127.0.0.1,.th-wildau.de
     restart: unless-stopped
     networks:
       - app_network
@@ -32,18 +24,26 @@ services:
       timeout: 5s
       retries: 3
       start_period: 30s
-      
+     
   python_app:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        # Proxy-Konfiguration für Build-Phase
+        - http_proxy=http://proxy.th-wildau.de:8080
+        - https_proxy=http://proxy.th-wildau.de:8080
+        - no_proxy=localhost,127.0.0.1,.th-wildau.de
     container_name: python_app
     depends_on:
       chromadb:
         condition: service_healthy
     environment:
-      - OLLAMA_URL=http://ollama:11434
       - CHROMADB_URL=http://chromadb:8000
+      # Proxy-Konfiguration für Laufzeit
+      - http_proxy=http://proxy.th-wildau.de:8080
+      - https_proxy=http://proxy.th-wildau.de:8080
+      - no_proxy=localhost,127.0.0.1,.th-wildau.de,chromadb
     ports:
       - "8000:8000"
     volumes:
@@ -54,12 +54,11 @@ services:
     restart: unless-stopped
     networks:
       - app_network
-    # Entferne den command override für VS Code Dev Containers
-    # command: sh -c "sleep 45 && python your_script.py"
 
 volumes:
-  ollama_data:
-
+  chromadb_data:
+    driver: local
+    
 networks:
   app_network:
     driver: bridge

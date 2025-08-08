@@ -5,7 +5,7 @@ class Config:
     # ChromaDB
     CHROMA_HOST: str = os.getenv("CHROMA_HOST", "localhost")
     CHROMA_PORT: int = int(os.getenv("CHROMA_PORT", "8001"))
-    CHROMA_HTTP_URL: str = f"http://{CHROMA_HOST}:{CHROMA_PORT}"
+    CHROMA_HTTP_URL: str = os.getenv("CHROMA_HTTP_URL") or f"http://{CHROMA_HOST}:{CHROMA_PORT}"
     
     # Embedding Model
     EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "oliverguhr/revosax-granite-embedding-278m-multilingual")

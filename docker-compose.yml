@@ -1,7 +1,7 @@
 services:
      
   chromadb:
-    image: chromadb/chroma:0.6.3
+    image: chromadb/chroma:0.5.0
     container_name: chromadb
     ports:
       - "8001:8000"
@@ -39,7 +39,9 @@ services:
       chromadb:
         condition: service_healthy
     environment:
-      - CHROMADB_URL=http://chromadb:8000
+      - CHROMA_HOST=chromadb
+      - CHROMA_PORT=8000
+      - CHROMA_HTTP_URL=http://chromadb:8000
       # Proxy-Konfiguration für Laufzeit
       - http_proxy=http://proxy.th-wildau.de:8080
       - https_proxy=http://proxy.th-wildau.de:8080

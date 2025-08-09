@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from typing import Optional
 
 class Config:
@@ -20,3 +21,6 @@ class Config:
     
     # Collection Name
     CHROMA_COLLECTION_NAME: str = os.getenv("CHROMA_COLLECTION_NAME", "simple_embeddings")
+
+    #Data Directory 
+    DATA_DIR = Path(__file__).parent.parent /"data" / "raw_data_books"

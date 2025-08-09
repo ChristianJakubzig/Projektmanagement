@@ -1,5 +1,5 @@
 import logging
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from ..config import Config
 
 logger = logging.getLogger(__name__)

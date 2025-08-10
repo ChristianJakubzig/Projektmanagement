@@ -40,3 +40,35 @@ class DocumentProcessor:
         except Exception as e:
             logger.error("Fehler beim Verarbeiten von %s: %s", filename, e)
             raise
+
+    def process_all_files(self) -> List[Document]:
+        """
+        Verarbeitet alle Textdatein aus dem Ordner data/raw_data
+        """
+        all_docs = []
+
+        txt_files = list(self.data_path.glob("*.txt"))
+
+        if not txt_files:
+            logger.warning("Keine .txt Dateien in %s gefunden", self.data_path)
+            return []
+        
+        logger.info("Verarbeitet %d Datein...", len(txt_files))
+
+        for file_path in txt_files:
+            try:
+                docs = self.process_files(file_path.name)
+                all_docs.extend(docs)
+                print(f"✅ {file_path.name}: {len(docs)} Chunks")
+
+            except Exception as e:
+                print(f"❌ Fehler bei {file_path.name}: {e}")
+                continue
+
+        print(f"\n🎉 Gesamt: {len(all_docs)} Chunks aus {len(txt_files)} Dateien")
+        return all_docs
+    
+    def get_available_files(self) -> List[str]:
+        """Liste aller verfügbaren Dateien"""
+        txt_files = [f.name for f in self.data_path.glob("*.txt")]
+        return sorted(txt_files)

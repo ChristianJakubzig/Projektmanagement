@@ -1,29 +1,32 @@
 services:
      
   chromadb:
-    image: chromadb/chroma:0.5.0
+    image: chromadb/chroma:1.0.16
     container_name: chromadb
     ports:
       - "8001:8000"
     volumes:
-      - ./data/chromadb:/chroma/chroma
+      - ./data/chromadb:/data
     environment:
+      - CHROMA_SERVER_HOST=0.0.0.0
+      - CHROMA_SERVER_HTTP_PORT=8000
       - IS_PERSISTENT=TRUE
-      - PERSIST_DIRECTORY=/chroma/chroma
       - ANONYMIZED_TELEMETRY=FALSE
+      - PERSIST_DIRECTORY=/data
       # Proxy-Konfiguration für ChromaDB
       - http_proxy=http://proxy.th-wildau.de:8080
       - https_proxy=http://proxy.th-wildau.de:8080
       - no_proxy=localhost,127.0.0.1,.th-wildau.de
+      - NO_PROXY=localhost,127.0.0.1,.th-wildau.de,chromadb
     restart: unless-stopped
     networks:
       - app_network
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8000/api/v1/heartbeat || exit 1"]
-      interval: 15s
+      test: ["CMD", "/bin/sh", "-c", "timeout 5 bash -c '</dev/tcp/localhost/8000'"]
+      interval: 10s
       timeout: 5s
-      retries: 3
-      start_period: 30s
+      retries: 12
+      start_period: 60s
      
   python_app:
     build:

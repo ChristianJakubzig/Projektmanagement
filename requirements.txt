@@ -15,4 +15,6 @@ tiktoken
 transformers
 torch
 pytest
+peft
+pysqlite3-binary
 -e .

@@ -1,0 +1,11 @@
+# Dockerfile.chromadb
+FROM chromadb/chroma:1.0.16
+
+USER root
+# irgendeinen Paketmanager treffen und curl installieren
+RUN (apt-get update && apt-get install -y --no-install-recommends curl ca-certificates && rm -rf /var/lib/apt/lists/*) \
+ || (apk add --no-cache curl) \
+ || (microdnf install -y curl) \
+ || (yum install -y curl) \
+ || true
+USER 1000

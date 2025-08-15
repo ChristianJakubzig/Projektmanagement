@@ -36,14 +36,30 @@ RUN apt-get update && apt-get install -y \
     cmake \
     git \
     curl \
+    wget \
     && rm -rf /var/lib/apt/lists/*
+
+# SQLite3 von Source kompilieren (neueste Version für ChromaDB)
+RUN cd /tmp && \
+    wget https://www.sqlite.org/2024/sqlite-autoconf-3450000.tar.gz && \
+    tar xzf sqlite-autoconf-3450000.tar.gz && \
+    cd sqlite-autoconf-3450000 && \
+    ./configure --prefix=/usr/local && \
+    make && make install && \
+    ldconfig && \
+    cd / && rm -rf /tmp/sqlite-autoconf-*
 
 # Rust installieren (nur für Build)
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/root/.cargo/bin:$PATH"
 
+# SQLite3-Pfad für Python setzen
+ENV LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+
 # Python Dependencies installieren
 COPY requirements.txt .
+# App-Code für -e . Installation kopieren
+COPY ./app /app
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt && \
     pip install langchain-chroma
@@ -68,12 +84,20 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
+# SQLite3 Libraries von builder kopieren
+COPY --from=builder /usr/local/lib/libsqlite3* /usr/local/lib/
+COPY --from=builder /usr/local/bin/sqlite3 /usr/local/bin/
+RUN ldconfig
+
+# SQLite3-Pfad für Python setzen
+ENV LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+
 # Python packages von builder kopieren
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=builder /usr/local/bin /usr/local/bin
 
-# App-Code kopieren
-COPY ./app /app
+# App-Code von builder kopieren (bereits mit -e . installiert)
+COPY --from=builder /app /app
 
 # Logs und Data Ordner erstellen
 RUN mkdir -p /app/logs /app/uploads

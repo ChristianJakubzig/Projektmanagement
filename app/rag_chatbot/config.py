@@ -9,6 +9,12 @@ class Config:
     CHROMA_HTTP_URL: str = os.getenv("CHROMA_HTTP_URL") or f"http://{CHROMA_HOST}:{CHROMA_PORT}"
     CHROMA_TENANT: str = os.getenv("CHROMA_TENANT", "default_tenant")
     CHROMA_DATABASE: str = os.getenv("CHROMA_DATABASE", "default_database")
+
+    # Ollama Config
+    OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "https://ollama-bim24.apps.rhos.th-wildau.de")
+    OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", "llama3.2")
+    OLLAMA_EMBEDDING_MODEL: str = os.getenv("OLLAMA_EMBEDDING_MODEL", "granite-embedding-278m-multilingual")
+    OLLAMA_KEEP_ALIVE: str = os.getenv("OLLAMA_KEEP_ALIVE", "5m")
     
     # Embedding Model
     EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "oliverguhr/revosax-granite-embedding-278m-multilingual")

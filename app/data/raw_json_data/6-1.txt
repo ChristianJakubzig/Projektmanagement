@@ -1,0 +1,18 @@
+{
+    "noauthor2024Medien-RäumeEröffnen": {
+        "note": "ZLB: Berliner Stadtbibliothek  (BStB)",
+        "abstract": "lt;p>Lehren und Lernen, verstanden als komplexe Vermittlung und Verarbeitung von Inhalten, findet immer in räumlichen Kontexten statt, die hinderlich oder förderlich sein können. Diese Räume können von ganz verschiedener Art sein und sie müssen sich keineswegs auf den Hörsaal und Seminarraum beschränken. Der Sammelband, der aus zwei Symposien des Münchner-Dozierenden-Netzwerks in den Jahren 2020 und 2021 hervorgegangen ist, möchte diese Räume erkunden, medial reflektieren und zugleich neue Räume für die Lehre eröffnen. Folgende Fragen stehen dabei im Zentrum: Welche Lehr- und Lernräume innerhalb und außerhalb der Hochschule haben sich bislang bewährt? Wo liegen ihre Grenzen, wo ihre Möglichkeiten? Wie lassen sich Lehr- und Lernräume gestalten? Welche Materialien, welche Technik und welche Medien haben sich bewährt oder bieten neue Möglichkeiten?.",
+        "pages": "300 Seiten",
+        "language": "Deutsch",
+        "isbn": "978-3-658-43046-7",
+        "edition": "1. Auflage",
+        "year": "2024",
+        "publisher": "Springer Fachmedien",
+        "address": "Wiesbaden",
+        "series": "Perspektiven der Hochschuldidaktik",
+        "editor": "Noller, Jörg [Herausgeber/in] and Beitz, Christina [Herausgeber/in] and Förg, Melanie [Herausgeber/in]",
+        "title": "Medien-Räume: Eröffnen, Gestalten, Vermitteln",
+        "ENTRYTYPE": "book",
+        "ID": "noauthor2024Medien-RäumeEröffnen"
+    }
+}

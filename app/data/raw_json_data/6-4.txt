@@ -1,0 +1,19 @@
+{
+    "Wolf2024PhotoshopElements": {
+        "note": "Marzahn-Hellersdorf: Bezirkszentralbibliothek Mark Twain",
+        "abstract": "Holen Sie das Beste aus Ihren Bildern heraus - mit Photoshop Elements 2024 und diesem umfassenden Handbuch! Der begeisterte Digitalfotograf Jürgen Wolf erklärt Ihnen verständlich und praxisbezogen, wie Sie Ihre Fotos optimieren, Bildfehler korrigieren oder kreative Montagen und Collagen erstellen. Schaffen Sie mit dem Organizer Ordnung in Ihrer Bildersammlung. Nutzen Sie spezielle Filter für einen ganz besonderen Foto-Look. Ihr Lieblingsbild hat einen Farbstich? Kein Problem! Egal, was Sie mit Photoshop Elements machen wollen - in diesem Buch erfahren Sie, wie es geht!Selbst knifflige Aufgaben werden Sie erfolgreich bewältigen. Zahlreiche Workshops und Profi-Tipps helfen Ihnen dabei. Damit Sie alle Schritte anschaulich nachvollziehen können, stehen Ihnen Beispielbilder als Download zur Verfügung. So tauchen Sie Schritt für Schritt tiefer in die Bildbearbeitung mit Photoshop Elements 2024 ein.Aus dem Inhalt:Die neue Programmoberfläche kennenlernenBilder übersichtlich verwaltenUmfangreiche Bildkorrekturen meisternMit Farben die Bildwirkung beeinflussenAuswahlen erstellen und Objekte freistellenMit Ebenen gezielt und kreativ arbeitenPorträts perfekt retuschierenTexte und Formen einsetzenCollagen, Montagen und Panoramen mit Photomerge erstellenBilder wirkungsvoll präsentierenFarbprofile, Plug-ins und Tastenkürzel nutzenMit vielen Beispielbildern zum DownloadDie Fachpresse zur Vorauflage:NaturFoto: »Ein konkurrenzloses Handbuch zum Lernen und Nachschlagen. Unbedingt empfehlenswert, wenn man dieses Bildbearbeitungsprogramm voll ausschöpfen und das Beste aus seinen Bildern herausholen will.«webdigital.de: »Gerade weil einer Software heute kaum noch Anleitungen beiliegen, ist ein Handbuch wie dieses das A und O. Dieses Buch ist somit unverzichtbar für alle, die das Maximum aus der Software rausholen wollen.«.",
+        "pages": "832 Seiten",
+        "type": "Anleitung",
+        "keywords": "Adobe Photoshop Elements",
+        "language": "Deutsch",
+        "isbn": "978-3-8362-9873-5",
+        "edition": "15. Auflage",
+        "year": "2024",
+        "publisher": "Rheinwerk",
+        "address": "Bonn",
+        "title": "Photoshop Elements 2024: das umfassende Handbuch",
+        "author": "Wolf, Jürgen",
+        "ENTRYTYPE": "book",
+        "ID": "Wolf2024PhotoshopElements"
+    }
+}

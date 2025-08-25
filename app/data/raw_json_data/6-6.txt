@@ -1,0 +1,20 @@
+{
+    "Gantzhorn2024PatagonienFeuerland": {
+        "note": "ZLB: Amerika-Gedenkbibliothek (AGB)",
+        "abstract": "In Patagonien am sturmumtosten »Ende« Südamerikas und auf den vorgelagerten Feuerlandinseln finden sich die faszinierendsten Landschaften der Erde: Regenwald und blaugrüne Gletscher, endlose Pampa und die eisigen Gipfel von Fitz Roy und Cerro Torre, grünes Seengebiet und wüstenhafte Vulkanlandschaften. Die Region ist wie gemacht für Wanderungen und Trekkingtouren.  Der Rother Wanderführer »Patagonien und Feuerland« stellt 50 der interessantesten und lohnenswertesten Touren vor: von einfachen Spaziergängen und Wanderungen bis zu äußerst anspruchsvollen mehrtägigen Touren über die Patagonischen Eisfelder.  Präzise Wegbeschreibungen, Kartenausschnitte mit eingezeichnetem Routenverlauf und aussagekräftige Höhenprofile stehen zu jeder Tour zur Verfügung. Eine übersichtliche Kurzinfo listet die wichtigsten Punkte auf, wie Ausgangspunkt, Anforderungen, Einkehr- und Unterkunftsmöglichkeiten. In einem ausführlichen Einführungsteil erfährt der Leser alles, was er zur Planung und Organisation einer Trekkingreise nach Patagonien wissen muss. Beeindruckende Bilder vermitteln einen ersten Eindruck des Wanderabenteuers Patagonien.  Ralf Gantzhorn, Fotograf und Autor, und Thomas Wilken, Reiseveranstalter und Reiseleiter, haben Patagonien über Jahre hinweg regelmäßig bereist. Vielerorts haben sie unberührte Trekkingpfade abseits der populären touristischen Ziele erkundet. In diesem Rother Wanderführer geben sie ihre persönlichen Erfahrungen an diejenigen weiter, die Patagonien zu Fuß entdecken wollen.",
+        "pages": "311 Seiten",
+        "type": "Führer",
+        "keywords": "Patagonien. Feuerland. Wandern. Trekking",
+        "language": "Deutsch",
+        "isbn": "978-3-7633-4640-0",
+        "edition": "5., neu bearbeitete und erweiterte Auflage",
+        "year": "2024",
+        "publisher": "Rother Bergverlag",
+        "address": "Oberhaching",
+        "series": "Rother Wanderführer",
+        "title": "Patagonien und Feuerland: 53 ausgewählte Touren  [mit GPS-Tracks]",
+        "author": "Gantzhorn, Ralf and Korten, Matias",
+        "ENTRYTYPE": "book",
+        "ID": "Gantzhorn2024PatagonienFeuerland"
+    }
+}

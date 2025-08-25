@@ -1,36 +1,84 @@
 """
-Einfache Main - RAG Chatbot Workflow
+Hauptskript zum Testen des RAG-Systems
 """
-from rag_chatbot.embeddings.embedding_manager import EmbeddingManager
-from rag_chatbot.embeddings.document_processor import DocumentProcessor
-from rag_chatbot.vector_store.chroma_client import get_chroma_vectorstore
-from rag_chatbot.vector_store.vector_operations import vector_operations
 
+# Einfacher Import-Fix
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+sys.path.append(os.path.dirname(__file__))
 
-def main():
-    print("🚀 RAG Chatbot starten...")
-    
-    # 1. Komponenten laden
-    embedding_manager = EmbeddingManager()
-    processor = DocumentProcessor()
-    vectorstore = get_chroma_vectorstore(embedding_manager.get_model())
-    vector_ops = vector_operations(vectorstore)
-    
-    # 2. Dokumente verarbeiten
-    documents = processor.process_all_files()
-    print(f"📚 {len(documents)} Chunks erstellt")
-    
-    # 3. Embedden und speichern
-    print("⏳ Embedding läuft...")
-    vector_ops.add_documents(documents)
-    
-    # 4. Test-Suche
-    results = vectorstore.similarity_search("What is Frankenstein about?", k=2)
-    print(f"\n🔍 Test-Suche erfolgreich: {len(results)} Ergebnisse gefunden")
-    print(f"📖 Erstes Ergebnis: {results[0].page_content[:100]}...")
-    
-    print("\n🎉 Fertig! ChromaDB ist bereit.")
+from rag_chatbot.ollama_client.client import OllamaClient
+from rag_chatbot.retriever.simple_retriever import SimpleRetriever
+def test_ollama_connection():
+    """Test 1: Ollama Chat"""
+    print("=" * 50)
+    print("🔗 Test 1: Ollama Chat")
+    print("=" * 50)
+   
+    try:
+        client = OllamaClient()
+       
+        # Verfügbare Modelle
+        models = client.models()
+        print(f"✅ Verfügbare Modelle: {len(models)}")
+        for model in models:
+            print(f"   - {model}")
+       
+        # Chat-Tests
+        print("\n💬 Chat-Test:")
+        response = client.chat("Hallo! Antworte in einem Satz.", temperature=0.7)
+        print(f"Antwort: {response}")
+        
+        print("\n✅ Ollama Client funktioniert!")
+        return True
+       
+    except Exception as e:
+        print(f"❌ Fehler: {e}")
+        return False
 
+def test_rag_retriever():
+    """Test 2: RAG mit MultiQuery"""
+    print("\n" + "=" * 50)
+    print("🧠 Test 2: RAG Retriever")
+    print("=" * 50)
+    
+    try:
+        print("🔄 Initialisiere RAG-System...")
+        retriever = SimpleRetriever()
+        
+        print("✅ RAG-System bereit!")
+        
+        # Test-Fragen
+        questions = [
+            "Was ist Machine Learning?",
+            "Erkläre künstliche Intelligenz",
+            "Was sind neuronale Netze?"
+        ]
+        
+        for i, question in enumerate(questions, 1):
+            print(f"\n❓ Frage {i}: {question}")
+            print("🔍 Suche läuft...")
+            
+            answer = retriever.ask(question)
+            print(f"🤖 Antwort: {answer}")
+        
+        return True
+        
+    except Exception as e:
+        print(f"❌ RAG-System Fehler: {e}")
+        return False
 
 if __name__ == "__main__":
-    main()
+    print("🚀 RAG-System Tests")
+    
+    # Test 1: Ollama
+    ollama_ok = test_ollama_connection()
+    
+    if ollama_ok:
+        # Test 2: RAG (nur wenn Ollama funktioniert)
+        rag_ok = test_rag_retriever()
+    else:
+        print("\n⏭️  RAG-Tests übersprungen (Ollama-Fehler)")
+    
+    print("\n🏁 Tests abgeschlossen!")

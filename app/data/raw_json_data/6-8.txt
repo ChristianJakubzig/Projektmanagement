@@ -1,0 +1,17 @@
+{
+    "Peters2024ClanJuwelen": {
+        "note": "Reinickendorf: Humboldt-Bibliothek",
+        "abstract": "Der größte Kunstdiebstahl der deutschen Nachkriegsgeschichte: Der Einbruch eines Remmo-Kommandos 2019 in das Dresdner Grüne Gewölbe zeigt exemplarisch wie keine andere Straftat die Macht der Clans in Deutschland   und die partielle Ohnmacht des Staates. Bestsellerautor Butz Peters beschreibt, wie der »Coup des Jahrhunderts« in Dresden gelingen konnte, wie die »Geschäftsmodelle« des Remmo-Clans funktionieren und wie die Mitglieder gegenüber der Justiz agieren. Er schildert den Aufstieg des Clans in Deutschland, beginnend in den 1980er-Jahren, und wie sich seither eine Parallelgesellschaft fernab des Staates entwickelt hat. Mitten in Deutschland. Nicht nur in Berlin-Neukölln. Vieles in dem Buch liest sich abenteuerlich, unglaublich, bestürzend   aber es ist wahr.",
+        "pages": "299 Seiten",
+        "language": "Deutsch",
+        "isbn": "978-3-7423-2503-7",
+        "edition": "1. Auflage",
+        "year": "2024",
+        "publisher": "riva",
+        "address": "München",
+        "title": "Der Clan und die Juwelen: Der Einbruch ins Dresdner Grüne Gewölbe und die Macht der Remmos",
+        "author": "Peters, Butz",
+        "ENTRYTYPE": "book",
+        "ID": "Peters2024ClanJuwelen"
+    }
+}

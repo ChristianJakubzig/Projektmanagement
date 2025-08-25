@@ -28,13 +28,7 @@ class Config:
     CHUNK_OVERLAP: int = int(os.getenv("CHUNK_OVERLAP", "200"))
     
     # Collection Name
-    # original
-    # CHROMA_COLLECTION_NAME: str = os.getenv("CHROMA_COLLECTION_NAME", "simple_embeddings")
+    CHROMA_COLLECTION_NAME: str = os.getenv("CHROMA_COLLECTION_NAME", "simple_embeddings")
 
-    # Test Simon 23.08.2025
-    CHROMA_COLLECTION_NAME: str = os.getenv("CHROMA_COLLECTION_NAME", "json_embeddings")
-    
     #Data Directory 
-    # original
-    # DATA_DIR = Path(__file__).parent.parent /"data" / "raw_data_books"
-    DATA_DIR = Path(__file__).parent.parent /"data" / "raw_json_data"
+    DATA_DIR = Path(__file__).parent.parent /"data" / "raw_data_books"

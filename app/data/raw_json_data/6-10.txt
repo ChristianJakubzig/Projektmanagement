@@ -1,0 +1,18 @@
+{
+    "Lehmann2024Psychopharmakareduzieren": {
+        "note": "ZLB: Berliner Stadtbibliothek  (BStB)",
+        "abstract": "Psychopharmaka risikoarm absetzen  Im deutschsprachigen Raum schlucken Millionen von Menschen Psychopharmaka. Einer ihrer größten Wünsche findet seinen Weg in die Praxis: Medikamente reduzieren und absetzen können. Mit den vorgestellten Praxiskonzepten wird allen Beteiligten das notwendige Wissen vermittelt, um individuell angepasst absetzen zu können.  Bei dem Einsatz von Psychopharmaka gab es lange Zeit verhärtete Positionen zwischen Psychiatrie und Antipsychiatrie, zwischen Fachkräften, Angehörigen und Betroffenen: Die einen betrachteten Psychopharmaka als notwendige Präventionsmaßnahme, die anderen fürchteten Persönlichkeitsveränderungen und körperliche Schäden. Diese Konfrontation lassen die Verlage, die Herausgeber und die Autor*innen hinter sich, indem sie sich am Recht der Betroffenen auf Gesundheit und Selbstbestimmung orientieren. Die Herausgeber versammeln neueste wissenschaftliche Erkenntnisse und bewährte Praxiserfahrungen stellen Absetzgründe und -strategien vor und vergessen dabei weder das institutionelle Setting noch die Betroffenen und die Familienselbsthilfe.",
+        "pages": "264 Seiten",
+        "type": "Ratgeber",
+        "language": "Deutsch",
+        "isbn": "978-3-96605-212-2",
+        "edition": "1. Auflage",
+        "year": "2024",
+        "publisher": "Psychiatrie-Verlag GmbH",
+        "address": "Berlin, Köln",
+        "title": "Psychopharmaka reduzieren und absetzen: Praxiskonzepte für Profis, Betroffene, Angehörige",
+        "author": "Lehmann, Peter and Newnes, Craig",
+        "ENTRYTYPE": "book",
+        "ID": "Lehmann2024Psychopharmakareduzieren"
+    }
+}

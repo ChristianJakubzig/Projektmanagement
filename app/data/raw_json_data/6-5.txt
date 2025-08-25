@@ -1,0 +1,17 @@
+{
+    "Gay2024KoordinierungBau": {
+        "note": "ZLB: Berliner Stadtbibliothek  (BStB)",
+        "abstract": "Bei einem Bauprojekt müssen viele einzelne Gewerke zeitlich und technisch ineinandergreifen, damit das Bauvorhaben wie geplant fertiggestellt werden kann. Üblicherweise trifft daher den Architekten, teilweise aber auch andere Beteiligte, die Pflicht, diese Gewerke zu koordinieren und zu überwachen. Mit der HOAI 2013 wurden diese Koordinierungspflichten erstmals geregelt, zuvor existierten nur richterrechtliche Vorgaben. Der Einhaltung der Koordinierungspflichten kommt in der Praxis grosse Bedeutung zu, da deren Nichtberücksichtigung bzw. unzureichende Erfüllung weitreichende Haftungsfolgen nach sich zieht. Das Handbuch stellt diese Pflichten, die Haftung und die dazu bislang ergangene Rechtsprechung kompakt, systematisch und praxisorientiert dar.",
+        "pages": "408 Seiten",
+        "keywords": "Deutschland. Honorarordnung für Architekten und Ingenieure (2013)",
+        "language": "Deutsch",
+        "isbn": "978-3-17-029428-8",
+        "year": "2024",
+        "publisher": "Kohlhammer W.",
+        "address": "[Stuttgart]",
+        "title": "Koordinierung am Bau: Leistungspflichten - Haftung - Vergütung",
+        "author": "Gay, Barbara",
+        "ENTRYTYPE": "book",
+        "ID": "Gay2024KoordinierungBau"
+    }
+}

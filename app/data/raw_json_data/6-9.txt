@@ -1,0 +1,18 @@
+{
+    "Weig2024BlindesVertrauen": {
+        "note": "ZLB: Berliner Stadtbibliothek  (BStB)",
+        "abstract": "Ein Führhund, dem sein sehbeeinträchtiger Halter im wahrsten Sinne des Wortes blind vertrauen kann, ist etwas absolut Faszinierendes. Dennoch sind Blindenführhunde in den letzten Jahren auch in die Kritik geraten: Sind sie nicht mittlerweile durch technische Hilfsmittel ersetzbar? Sind Ausbildung und Arbeit eines Blindenführhundes wirklich artgerecht? Für die Autorin steht fest: Sie sind nach wie vor nicht ersetzbar, aber es ist höchste Zeit, dass das Training über positive Verstärkung wirklich flächendeckend in die Ausbildung von Blindenführhunden einzieht. Nicht nur, weil es fairer gegenüber dem Tier ist, sondern weil am Ende auch zuverlässigere und sicherere Führhunde herauskommen, auf die sich ihr Halter in jeder Situation verlassen kann.Wie das geht, erklärt sie kenntnis- und detailreich in diesem Buch. Welche Voraussetzungen man braucht, um selbst Führhundetrainer zu werden, wie die formalen Rahmenbedingungen sind, worauf bei der Auswahl des künftigen Führhundes zu achten ist, wie Grundausbildung und schließlich Spezialausbildung Schritt für Schritt konsequent positiv gelingen und wie aus Hund und Mensch schließlich über Einschulung, Gespannprüfung und Nachbetreuung ein eingespieltes Team wird, erfahren alle am Thema Interessierten in diesem Buch.",
+        "pages": "160 Seiten",
+        "type": "Ratgeber",
+        "language": "Deutsch",
+        "isbn": "978-3-95464-310-3",
+        "edition": "1. Auflage",
+        "year": "2024",
+        "publisher": "Kynos",
+        "address": "Nerdlen",
+        "title": "Blindes Vertrauen: Führhundausbildung mit Herz",
+        "author": "Weig, Verena",
+        "ENTRYTYPE": "book",
+        "ID": "Weig2024BlindesVertrauen"
+    }
+}

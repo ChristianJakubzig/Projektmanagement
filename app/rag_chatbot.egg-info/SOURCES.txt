@@ -1,6 +1,8 @@
 setup.py
 rag_chatbot/__init__.py
 rag_chatbot/config.py
+rag_chatbot/main.py
+rag_chatbot/setup_database.py
 rag_chatbot.egg-info/PKG-INFO
 rag_chatbot.egg-info/SOURCES.txt
 rag_chatbot.egg-info/dependency_links.txt
@@ -8,6 +10,8 @@ rag_chatbot.egg-info/top_level.txt
 rag_chatbot/embeddings/__init__.py
 rag_chatbot/embeddings/document_processor.py
 rag_chatbot/embeddings/embedding_manager.py
+rag_chatbot/ollama_client/__init__.py
+rag_chatbot/ollama_client/client.py
 rag_chatbot/vector_store/__init__.py
 rag_chatbot/vector_store/chroma_client.py
 rag_chatbot/vector_store/vector_operations.py

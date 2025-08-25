@@ -1,0 +1,19 @@
+{
+    "Kdouh2024HerrlicheHülsenfrüchte": {
+        "note": "Reinickendorf: Bibliothek Märkisches Viertel",
+        "abstract": "lt;p>Hülsenfrüchte sind wahre Superfoods! Sie sind protein- und eiweißreich, haben einen niedrigen glykämischen Index und sind sehr sättigend. Sie eignen sich also perfekt für eine gesunde Ernährung. Außerdem sind sie nicht nur für uns, sondern auch für das Klima gut   sie benötigen im Anbau wenig Wasser und sind deshalb sehr nachhaltig. Dieses Kochbuch zeigt 40 abwechslungsreiche, einfache und internationale Rezepte mit Hülsenfrüchten   egal ob extraschnell oder aus dem Ofen oder auch für Kinder, hier ist für alle etwas dabei: Wie wäre es mit klassischem oder ausgefallenem Hummus, Falafeln mit Karotte und Kreuzkümmel, Belugalinsen-Salat, Gazpacho aus roten Bohnen, Shakshuka, Black-Bean-Burger, Erbsen-Dhal oder Tajine mit Kichererbsen? Entdecken Sie die Vielfalt der Hülsenfrüchte!.",
+        "pages": "127 Seiten",
+        "type": "Kochbuch",
+        "language": "Deutsch",
+        "isbn": "978-3-7423-2609-6",
+        "edition": "1. Auflage",
+        "year": "2024",
+        "publisher": "riva",
+        "address": "München",
+        "editor": "Dumont, Sophie [Fotograf/in] and Krabbe, Wiebke [Übersetzer/in]",
+        "title": "Herrliche Hülsenfrüchte: neue Lieblingsgerichte für Kichererbsen, Bohnen, Linsen und co.",
+        "author": "Kdouh, Sarah",
+        "ENTRYTYPE": "book",
+        "ID": "Kdouh2024HerrlicheHülsenfrüchte"
+    }
+}

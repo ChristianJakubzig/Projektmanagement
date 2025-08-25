@@ -1,0 +1,18 @@
+{
+    "Brunswig2024MarokkoWüste": {
+        "note": "Lichtenberg: Anna-Seghers-Bibliothek",
+        "abstract": "Am nordwestlichen Zipfel Afrikas erwarten Sie atemberaubende Felslandschaften, weite Wüsten, grüne Oasen und das tiefe Blau des Atlantiks. Dazu kommen stille Bergdörfer, geschichtsträchtige Königsstädte von einzigartiger Lebendigkeit und Menschen voller Wärme und Gastfreundschaft. Ob Sie sich vom prachtvollen Treiben auf dem legendären Marktplatz Djemaa el Fna in Marrakesch verzaubern lassen, in der Stille der Sahara Atem holen oder eine Trekkingtour durch das schroffe Atlas-Gebirge unternehmen: Der DuMont Bildatlas zeigt Ihnen, wo die eindrucksvollsten Erlebnisse auf Sie warten.",
+        "pages": "121 Seiten",
+        "type": "Bildband",
+        "language": "Deutsch",
+        "edition": "1. Auflage",
+        "year": "2024",
+        "publisher": "DuMont Reiseverlag",
+        "series": "Bildatlas ; 238",
+        "editor": "Heuer, Frank [Fotograf/in]",
+        "title": "Marokko: Wüste hautnah - Übernachten im Sandmeer, Marrakesch - Eintauchen in die Souks, Kasbahs - Entlang der alten Karawanenstrasse",
+        "author": "Brunswig, Muriel",
+        "ENTRYTYPE": "book",
+        "ID": "Brunswig2024MarokkoWüste"
+    }
+}

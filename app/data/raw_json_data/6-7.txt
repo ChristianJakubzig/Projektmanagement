@@ -1,0 +1,19 @@
+{
+    "Rödel2024AikidoGrundlagen": {
+        "note": "Friedrichshain-Kreuzberg: Mittelpunktbibliothek Wilhelm Liebknecht / Namik Kemal",
+        "abstract": "Das Buch hat sich seit seinem Erscheinen zu einem echten Standardwerk in der Aikido-Szene entwickelt, welches umfassend die zentralen Aspekte der Kampfkunst Aikido behandelt. Anhand von zahlreichen Bewegungsbeispielen wird die grundlegende Konzeption erklärt und der Lernprozess wird verdeutlicht. Zu allen Basistechniken werden wichtige Details erläutert - zusätzlich finden sich Anwendungen der Basistechniken. Das Buch orientiert sich inhaltlich am weltweiten Dachverband (Aikikai).",
+        "pages": "407 Seiten",
+        "type": "Ratgeber",
+        "keywords": "Aikido",
+        "language": "Deutsch",
+        "isbn": "978-3-8403-7881-2",
+        "edition": "4., überarbeitete Auflage",
+        "year": "2024",
+        "publisher": "Meyer &amp; Meyer",
+        "address": "Aachen",
+        "title": "Aikido - Grundlagen: Techniken - Prinzipien - Konzeption",
+        "author": "Rödel, Bodo",
+        "ENTRYTYPE": "book",
+        "ID": "Rödel2024AikidoGrundlagen"
+    }
+}

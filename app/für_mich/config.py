@@ -13,7 +13,7 @@ class Config:
     # Ollama Config
     OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "https://ollama-bim24.apps.rhos.th-wildau.de")
     OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", "llama3.2")
-    OLLAMA_EMBEDDING_MODEL: str = os.getenv("OLLAMA_EMBEDDING_MODEL", "granite-embedding-278m-multilingual")
+    OLLAMA_EMBEDDING_MODEL: str = os.getenv("OLLAMA_EMBEDDING_MODEL", "granite-embedding:278m")
     OLLAMA_KEEP_ALIVE: str = os.getenv("OLLAMA_KEEP_ALIVE", "5m")
     
     # Embedding Model
@@ -28,7 +28,7 @@ class Config:
     CHUNK_OVERLAP: int = int(os.getenv("CHUNK_OVERLAP", "200"))
     
     # Collection Name
-    CHROMA_COLLECTION_NAME: str = os.getenv("CHROMA_COLLECTION_NAME", "simple_embeddings")
+    CHROMA_COLLECTION_NAME: str = os.getenv("CHROMA_COLLECTION_NAME", "granite-embedding")
 
     #Data Directory 
     DATA_DIR = Path(__file__).parent.parent /"data" / "raw_data_books"
